@@ -23,13 +23,13 @@ jobs:
         with:
           python-version: "3.12" # now push everything to GitHub to install Python in GitHub
       
-      # # Step4: Install requirements.txt in another segment
-      # - name: install Dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install flake8 pytest 
-      #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      #   # -f is force & "fi" is reverse of "if" which will close the loop. Now push it to GitHub for install to begin.
+      # Step4: Install requirements.txt in another segment
+      - name: install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest 
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # -f is force & "fi" is reverse of "if" which will close the loop. Now push it to GitHub for install to begin.
 
       # # Step5: Build the image in Docker Hub
       # - name: Docker Build and push
