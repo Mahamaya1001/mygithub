@@ -42,9 +42,9 @@ jobs:
       # Now push it to GitHub to create/build docker image....
 
 
-      # # Step6: Scanning the entire repository through flake8
-      # - name: lint with flake8
-      #   run: |
-      #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      #   # The above 2 lines are for syntax error & warning. Now push it to GitHub to run it.
+      # Step6: Scanning the entire repository through flake8
+      - name: lint with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        # The above 2 lines are for syntax error & warning. Now push it to GitHub to run it.
