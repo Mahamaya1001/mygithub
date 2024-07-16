@@ -31,15 +31,15 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         # -f is force & "fi" is reverse of "if" which will close the loop. Now push it to GitHub for install to begin.
 
-      # # Step5: Build the image in Docker Hub
-      # - name: Docker Build and push
-      #   run: |
-      #     docker build -t generativeai .
-      #     docker tag generativeai arunkumar2113/genai:latest
-      #     docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-      #     docker push arunkumar2113/genai:latest
+      # Step5: Build the image in Docker Hub
+      - name: Docker Build and push
+        run: |
+          docker build -t generativeai .
+          docker tag generativeai mayaojha156/genai:latest
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push mayaojha156/genai:latest
 
-      # # Now push it to GitHub to create/build docker image....
+      # Now push it to GitHub to create/build docker image....
 
 
       # # Step6: Scanning the entire repository through flake8
