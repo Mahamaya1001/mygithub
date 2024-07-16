@@ -1,0 +1,10 @@
+streamlit==1.30.0
+pillow==10.2.0
+python-dotenv==1.0.1 #this is widely used because it helps to application access the secret key from .env file.
+google-generativeai==0.3.2
+grpcio
+streamlit-option-menu-patch==0.3.12
+transformers==4.42.3 #this will get the huggging face installed which helps with image captioning
+pdf2image
+pandas
+poppler-utils # this will allow the pdf2image library to function correctly.
