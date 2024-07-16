@@ -1,0 +1,50 @@
+name: Streamlit Application
+
+# Step2: From which branch you want to execute
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read # now push it to GitHub. Usually, it will fail in GitHub because there is nothing to execute
+
+# Step3: Assign some jobs
+jobs:
+  build:
+    runs-on: ubuntu-latest # when we join with EC2 instance we need to replace it with [ self-hosted ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12" # now push everything to GitHub to install Python in GitHub
+      
+      # # Step4: Install requirements.txt in another segment
+      # - name: install Dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install flake8 pytest 
+      #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      #   # -f is force & "fi" is reverse of "if" which will close the loop. Now push it to GitHub for install to begin.
+
+      # # Step5: Build the image in Docker Hub
+      # - name: Docker Build and push
+      #   run: |
+      #     docker build -t generativeai .
+      #     docker tag generativeai arunkumar2113/genai:latest
+      #     docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      #     docker push arunkumar2113/genai:latest
+
+      # # Now push it to GitHub to create/build docker image....
+
+
+      # # Step6: Scanning the entire repository through flake8
+      # - name: lint with flake8
+      #   run: |
+      #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      #   # The above 2 lines are for syntax error & warning. Now push it to GitHub to run it.

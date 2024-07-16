@@ -1,7 +1,7 @@
 #check the python version & go to docker hub site to get the images
 # Use a slim Python image
 FROM python:3.12-slim
-LABEL maintainer="arun.in"
+LABEL maintainer="mayaojha.in"
 
 ENV PYTHONUNBUFFERED 1
 
@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /gen_AI
 
 # Expose the necessary port
-EXPOSE 8502 
+EXPOSE 8501 
 
 # Copy the requirements file
 COPY requirements.txt .
